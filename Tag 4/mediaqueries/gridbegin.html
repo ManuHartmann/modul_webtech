@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://cdn.fonts.net">
+    <link href="https://cdn.fonts.net/kit/a9d77c45-fe57-48b8-8112-731addaf2e64/a9d77c45-fe57-48b8-8112-731addaf2e64.css"
+        rel="stylesheet" />
+
+    <style>
+        /*-----default desktop styles-----*/
+        body {
+            font-family: 'HelveticaNowDisplayBold';
+            margin: 0;
+            padding: 0;
+        }
+
+        /*---layout---*/
+        #wrapper {
+            display: grid;
+            width: 100vw;
+            height: 100vh;
+            grid-template-columns: 200px 1fr 200px;
+            grid-template-rows: 400px 1fr;
+        }
+
+        .lohse {
+            grid-area: 1/1/2/2;
+            align-self: end;
+            justify-self: end;
+        }
+
+        .truninger {
+            grid-area: 1/3/2/4;
+            align-self: end;
+        }
+
+        .roteflaeche {
+            grid-area: 1/2/3/3;
+            background-color: red;
+
+        }
+
+        .rotate {
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+
+        }
+
+        /*-----schrift-----*/
+        .big {
+            font-size: 3rem;
+            line-height: 110%;
+
+        }
+
+        .red {
+            color: red;
+        }
+
+        /*---media queries---*/
+        @media (max-width: 768px) {
+            #wrapper {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 200px 1fr 200px;
+            }
+
+            .lohse {
+                grid-area: 1/2/2/3;
+                align-self: end;
+                justify-self: end;
+
+            }
+
+            .truninger {
+                grid-area: 3/2/4/3;
+                align-self: end;
+            }
+
+            .roteflaeche {
+                grid-area: 2/1/3/3;
+                background-color: red;
+
+            }
+
+            .rotate {
+                writing-mode: horizontal-tb;
+                transform: rotate(0deg);
+
+            }
+
+            /*-----schrift-----*/
+            .big {
+                font-size: 3rem;
+                line-height: 110%;
+
+            }
+
+            .red {
+                color: red;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="big lohse">
+            <div class="rotate">
+                <span class="red">Richard P. Lohse </span> <br />
+                Kunsthaus <br />
+                Zürich
+            </div>
+
+        </div>
+        <div class="roteflaeche">
+
+        </div>
+        <div class="big truninger">
+            <div class="rotate">
+
+                <span class="red">Kunsthaus<br />
+                    Zürich</span><br />
+                <span>Truninger</span>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

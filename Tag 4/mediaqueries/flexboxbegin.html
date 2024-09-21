@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lohse mit Flexbox</title>
+    <link rel="preconnect" href="https://cdn.fonts.net">
+    <link href="https://cdn.fonts.net/kit/a9d77c45-fe57-48b8-8112-731addaf2e64/a9d77c45-fe57-48b8-8112-731addaf2e64.css"
+        rel="stylesheet" />
+
+    <style>
+        /*-----default desktop styles-----*/
+        body {
+            font-family: 'HelveticaNowDisplayBold';
+        }
+
+        /*---layout---*/
+        #wrapper {
+            display: flex;
+            justify-content: space-between;
+            height: 100vh;
+        }
+
+        .col1 {
+            flex-basis: 200px;
+            flex-grow: 0;
+            flex-shrink: 0;
+            height: 400px;
+        }
+
+        .col2red {
+            background-color: red;
+            flex-grow: 1;
+        }
+
+        .rotate {
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+
+        }
+
+        .flexrowend {
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+        }
+
+        .flexrowstart {
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+        }
+
+       
+
+        /*-----schrift-----*/
+        .big {
+            font-size: 3rem;
+            line-height: 110%;
+
+        }
+
+        .red {
+            color: red;
+        }
+
+        /*---media queries---*/
+        @media (max-width: 768px) {
+
+            #wrapper {
+            flex-direction: column;
+            }
+            .rotate {
+            writing-mode: horizontal-tb;
+            transform: rotate(0deg);
+            display:flex;
+            flex-direction: column-reverse;
+            }
+            .big {
+                font-size: 2rem;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <div class="col1 flexrowend ">
+            <div class="rotate big">
+                <span class="red">Richard P. Lohse </span> <br />
+                Kunsthaus <br />
+                Zürich
+
+            </div>
+
+        </div>
+
+        <div class="col2red">
+
+        </div>
+        <div class="col1 flexrowstart">
+            <div class="rotate big">
+                
+                <span>Truninger</span><br/>
+                <span class="red">Kunsthaus<br/>
+                    Zürich</span>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

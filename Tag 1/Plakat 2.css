@@ -1,0 +1,62 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+body {
+    background-color: black;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.der {
+    grid-column: 2/4;
+    grid-row: 4 / 7;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 300px;
+    transform: rotate(180deg);
+    writing-mode: vertical-lr;
+    color: #AEB197;
+    margin: 0px;
+    padding: 0px;
+}
+
+.film {
+    grid-column: 2/4;
+    grid-row: 1 / 4;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 300px;
+    transform: rotate(180deg);
+    writing-mode: vertical-lr;
+    color: #f3f6e5;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.redfont {
+    grid-column: 4 / 7;
+    grid-row: 2 / 3;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 2em;
+    color: #de130f;
+    font-size: 1em;
+}
+
+.oeffnungszeiten {
+    grid-column: 4 / 7;
+    grid-row: 4 / 6;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 2em;
+    color: #de130f;
+    font-size: 1em;
+    line-height: 1.2;
+}
