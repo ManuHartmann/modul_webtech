@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smithson</title>
+
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .group {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            align-self: center;
+        }
+
+        .child {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            mix-blend-mode: multiply;
+
+            font-size: 50vw;
+            font-weight: 900;
+            font-family: Arial, Helvetica, sans-serif;
+           
+         
+        }
+
+        .magenta{
+            color:magenta;
+            transform: translate(-100px,0);
+        }
+        .yellow{
+            color:yellow;
+        }
+        .blue{
+            color:cyan;
+            transform: translate(100px,0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="group">
+        <div class="child magenta ">
+            S
+        </div>
+        <div class="child yellow">
+            S
+        </div>
+        <div class="child blue">
+            S
+        </div>
+    </div>
+</body>
+
+</html>
