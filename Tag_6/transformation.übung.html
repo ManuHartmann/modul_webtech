@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .group {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+        }
+
+        /* beide elemente liegen ursprünglich übereinander */
+        .not_transformed,
+        .transformed {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            height: 400px;
+            width: 400px;
+        }
+
+        /* zur visuellen unterscheidung zwei unterschiedliche stile zuweisen */
+
+        .not_transformed {
+            background-color: black;
+        }
+
+        .transformed {
+            background-color: rgba(0, 0, 255, 0.5);
+        }
+
+        /* Transformationen */
+
+        .verschieben {
+            transition-property: all;
+            transition-duration: 1s;
+            transition-timing-function: ease-in-out;
+        }
+
+        .group:hover .verschieben{
+            transform: translate(100px, 200px);
+        }
+
+        .verschoben {
+            transform: translate(100px, 200px);
+        }
+
+        .rotieren {
+           transition-property: all;
+           transition-duration: 1s;
+           transition-timing-function: ease-in;
+        }
+
+        .group:hover .rotieren{
+            transform: rotate(45deg);
+            transform-origin: bottom left;
+            transform-origin: 50px 400px;
+        }
+
+        .scale {
+            transition-property: all;
+            transition-duration: 1s;
+            transition-timing-function: ease-in;
+        }
+
+        .group:hover .scale{
+            transform: scale(2, 0.5);
+            font-size: 100px;
+            color: aliceblue;
+        }
+
+        .skew {
+            transition-property: all;
+            transition-duration: 1s;
+            transition-timing-function: ease-in;
+        }
+
+        .group:hover .skew{
+            transform: skewX(10deg);
+            transform: skew(20deg, 10deg);
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+    <section>
+        <h1>Verschieben</h1>
+        <div class="group">
+            <div class="not_transformed">
+            </div>
+            <div class="transformed verschieben">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h1>Rotation</h1>
+        <div class="group">
+            <div class="not_transformed">
+            </div>
+            <div class="transformed rotieren">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h1>Scale</h1>
+        <div class="group">
+            <div class="not_transformed">
+            </div>
+            <div class="transformed scale">
+                scale</div>
+        </div>
+    </section>
+
+    <section>
+        <h1>skew</h1>
+        <div class="group">
+            <div class="not_transformed">
+            </div>
+            <div class="transformed skew">
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

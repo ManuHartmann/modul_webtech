@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+body {
+    background-color: black;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+
+.grid {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 275px repeat(6, 1fr) 100px;
+    grid-template-rows: repeat(10, 1fr);
+    overflow: hidden;
+}
+
+.der {
+    grid-column: 3;
+    grid-row: 6/11;
+    align-self: start;
+    overflow: hidden;
+}
+
+.der div {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 310px;
+    margin: 0;
+    padding: 0;
+    color: #AEB197;
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg) translateY(-20px)translateX(18px);
+    position: absolute; 
+   animation-name: moveText; 
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+
+.film {
+    grid-column: 3;
+    grid-row: 1/8;
+    align-self: end;
+}
+
+.film div {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 310px;
+    margin: 0;
+    padding: 0;
+    color: #f0f3d9;
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg) translateY(-20px) translateX(18px);
+    position: absolute; 
+     animation-name: moveTextDown; 
+    animation-duration: 4s; 
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-delay: 3s; 
+}
+
+/*
+.Film_background {
+    grid-column: 3/4;
+    grid-row: 1/9;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 100px;
+    transform: rotate(180deg) scaleX(-1) translateX(35px);
+    writing-mode: vertical-lr;
+    color: #f3f6e5;
+    margin: 0px;
+    padding: 0px;
+    justify-self: end;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: end;
+}
+
+.Film_background::before {
+    content: "Film";
+    margin-bottom: 1em;
+}
+
+.Film_background::after {
+    content: "Film";
+    margin-top: 1em;
+}
+
+.der_background {
+    grid-column: 3/4;
+    grid-row: 1/9;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 100px;
+    transform: rotate(180deg) scaleX(-1) translateX(35px);
+    writing-mode: vertical-lr;
+    color: #AEB197;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: end;
+}
+
+.der_background::before {
+    content: "der";
+    margin-bottom: 90px;
+}
+
+.der_background::after {
+    content: "der";
+    margin-top: 90px;
+}
+*/
+
+.redtext {
+    grid-column: 6 / 10;
+    grid-row: 1 / 11;
+    font-family: "Roboto", system-ui;
+    font-weight: 100;
+    font-size: 20px;
+    color: #de130f;
+    text-align: left;
+    white-space: nowrap;
+    overflow: visible;
+    display: grid;
+    justify-content: left;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(10, 1fr);
+}
+
+.redtext:hover{
+    font-size: 30px;
+}
+
+/*
+  transition: text-shadow 0.2s ease-in-out;
+
+.redtext:hover{
+    text-shadow: 0 0 30px #ff0000,
+                 0 0 40px #ff0000,
+                 0 0 50px #ff0000,
+                 0 0 60px #ff0000,
+                 0 0 70px #ff0000; 
+}
+*/
+
+.title {
+    grid-column: 1;
+    grid-row: 3/5;
+    animation: scaleup_left 2s ease-out 0s 1 normal forwards;
+}
+
+.oeffnungszeiten {
+    grid-column: 1;
+    grid-row: 7/10;
+    animation: scaleup_left 2s ease-out 0s 1 normal forwards;
+}
+
+@keyframes moveDown {
+    0% {
+        transform: rotate(-180deg) translateY(0px) translateX(18px);
+    }
+
+    100% {
+        transform: rotate(-180deg) translateY(-1000px) translateX(18px);
+    }
+}
+
+@keyframes moveUp {
+    0% {
+        transform: rotate(-180deg) translateY(0px) translateX(18px);
+    }
+
+    100% {
+        transform: rotate(-180deg) translateY(1000px) translateX(18px);
+    }
+}
+
+@keyframes scaleup_left {
+	0% {
+		transform: scale(0.5);
+		transform-origin: 0% 50%;
+	}
+
+	100% {
+		transform: scale(1);
+		transform-origin: 0% 50%;
+	}
+}
+
+@keyframes moveText {
+    0% {
+        transform: rotate(-180deg) translateY(0) translateX(0); /* Start at original position */
+    }
+    50% {
+        transform: rotate(-180deg) translateY(100vh) translateX(0); /* Move down off-screen */
+    }
+    100% {
+        transform: rotate(-180deg) translateY(0) translateX(0); /* Come back to the original position */
+    }
+}
+
+@keyframes moveTextDown {
+    0% {
+        /*transform: rotate(-180deg) translateY(-20px) translateX(18px);*/
+        transform: rotate(-180deg) translateY(-20px) translateX(18px); /* Start at original position */
+    }
+    50% {
+        transform: rotate(-180deg) translateY(100vh) translateX(18px); /* Move down off-screen */
+    }
+    100% {
+        transform: rotate(-180deg) translateY(-20px) translateX(18px); /* Come back to the original position */
+    }
+}
+
+
+/* Breakpoint */
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: 1fr 1fr 300px repeat(5, 1fr);
+    }
+
+    .der {
+        grid-column: 1/5;
+        grid-row: 3;
+        align-self: end;
+    }
+
+    .der div {
+        transform: rotate(0deg) translate(-150px, 90px);
+        writing-mode: horizontal-tb;
+        font-size: 380px;
+    }
+
+    .film {
+        grid-column: 3/9;
+        grid-row: 3;
+    }
+
+    .film div {
+        transform: rotate(0deg) translate(-22px, 90px);
+        writing-mode: horizontal-tb;
+        font-size: 380px;
+    }
+
+    .redtext {
+        grid-column: 3 / 8;
+        grid-row: 1 / 11;
+        font-size: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(10, 1fr);
+    }
+
+    .title {
+        grid-column: 1;
+        grid-row: 2/3;
+        align-self: start;
+    }
+
+    .oeffnungszeiten {
+        grid-column: 1;
+        grid-row: 7/10;
+        align-self: end;
+    }
+}
+
+
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: 1fr 1fr 1fr 200px repeat(4, 1fr);
+    }
+
+    .der {
+        grid-column: 1/5;
+        grid-row: 4;
+        align-self: end;
+    }
+
+    .der div {
+        transform: rotate(0deg) translate(-150px, 90px);
+        writing-mode: horizontal-tb;
+        font-size: 350px;
+    }
+
+    .film {
+        grid-column: 3/9;
+        grid-row: 4;
+    }
+
+    .film div {
+        transform: rotate(0deg) translate(-20px, 90px);
+        writing-mode: horizontal-tb;
+        font-size: 350px;
+    }
+
+    .redtext {
+        grid-column: 3 / 8;
+        grid-row: 1 / 11;
+        font-size: 1rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(10, 1fr);
+    }
+
+    .title {
+        grid-column: 1;
+        grid-row: 2/3;
+        align-self: start;
+    }
+
+    .oeffnungszeiten {
+        grid-column: 1;
+        grid-row: 7/10;
+        align-self: end;
+    }
+}

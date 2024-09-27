@@ -7,24 +7,19 @@
     <title>Smithson</title>
 
     <style>
-        body{
+        body {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             font-family: Arial, Helvetica, sans-serif;
         }
+
         .group {
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: 1fr;
             align-self: center;
-        }
-
-        .group:hover .child{
-            transform: rotate(45deg);
-            transform-origin: bottom left;
-            transform-origin: 50px 400px;
         }
 
         .child {
@@ -35,32 +30,59 @@
             font-size: 50vw;
             font-weight: 900;
             font-family: Arial, Helvetica, sans-serif;
-           
-         
         }
 
-        .magenta{
-            color:magenta;
-            transform: translate(-100px,0);
+        .magenta {
+            color: red;
+            animation-name: buchstabelinks;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: 3;
+            animation-fill-mode: forwards;
+
         }
-        .yellow{
-            color:yellow;
+
+        .yellow {
+            color: yellow;
         }
-        .blue{
-            color:cyan;
-            transform: translate(100px,0);
+
+        .blue {
+            color: cyan;
+            animation-name: buchstaberechts;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: 4;
+            animation-fill-mode: forwards;
         }
 
         @keyframes buchstabelinks {
-            0%{
-                transform:(0,0)
+            0% {
+                transform: translate(0, 0)
             }
-            50%{
-                transform: (-200px,0);
+
+            50% {
+                transform: translate(-300px, 0);
             }
-            100%{
-                transform: (-100px,0);
+
+            100% {
+                transform: translate(-50px, 0);
             }
+
+        }
+
+        @keyframes buchstaberechts {
+            0% {
+                transform: translate(0, 0)
+            }
+
+            50% {
+                transform: translate(300px, 0);
+            }
+
+            100% {
+                transform: translate(50px, 0);
+            }
+
         }
     </style>
 </head>
