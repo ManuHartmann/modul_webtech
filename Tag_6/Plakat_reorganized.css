@@ -1,0 +1,297 @@
+/* Importing the Roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+body {
+    background-color: black;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Grid Layout */
+.grid {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 275px repeat(6, 1fr) 100px;
+    grid-template-rows: repeat(10, 1fr);
+    overflow: hidden;
+}
+
+/* DER Section & Animation */
+.der {
+    grid-column: 3;
+    grid-row: 6 / 11;
+    animation-name: ticker-up;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* DER Text Styling */
+.der div {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 310px;
+    margin: 0;
+    padding: 0;
+    color: #AEB197;
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg) translateY(-20px) translateX(18px);
+    position: relative;
+}
+
+/* FILM Section & Animation */
+.film {
+    grid-column: 3;
+    grid-row: 1 / 8;
+    animation-name: ticker-down;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* FILM Text Styling */
+.film div {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 310px;
+    margin: 0;
+    padding: 0;
+    color: #f0f3d9;
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg) translateY(-20px) translateX(18px);
+    position: absolute;
+}
+
+/* Down scrollong animation for FILM */
+@keyframes ticker-down {
+    0% {
+        transform: translateY(-110%);
+    }
+
+    100% {
+        transform: translateY(145%);
+    }
+}
+
+/* Up scrolling Animation for DER */
+@keyframes ticker-up {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(-220%);
+    }
+}
+
+/* Add this class to trigger the animations */
+/* .start-animation {
+    opacity: 1;
+} */
+
+/* Red Text Section */
+.redtext {
+    grid-column: 6 / 10;
+    grid-row: 1 / 11;
+    font-family: "Roboto", system-ui;
+    font-weight: 100;
+    font-size: 30px;
+    color: #de130f;
+    text-align: left;
+    white-space: nowrap;
+    overflow: visible;
+    display: grid;
+    justify-content: left;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(10, 1fr);
+}
+
+/* Enhanced Typewriter effect styling
+.typewriter {
+    display: inline-block; 
+    overflow: hidden; 
+    white-space: nowrap; 
+    border-right: 2px solid #de130f; 
+    animation: 
+      typing 3.5s steps(30, end) forwards, 
+      blink-caret .5s step-end infinite;
+}
+
+/* Keyframes for typing effect */
+/* @keyframes typing {
+    0% { width: 0; } 
+    100% { width: 100%; } 
+} */
+
+/* Enhanced blinking cursor effect */
+/* @keyframes blink-caret {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: #de130f; }
+}  */
+
+/* Title Section */
+.title {
+    grid-column: 1;
+    grid-row: 3 / 5;
+}
+
+/* Opening Hours Section */
+.oeffnungszeiten {
+    grid-column: 1;
+    grid-row: 7 / 10;
+}
+
+
+
+/* Breakpoints for Responsive Design */
+
+/* Tablet View (max-width: 1024px) */
+@media (max-width: 1024px) {
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(16, 1fr);
+        grid-template-rows: repeat(9, 1fr);
+    }
+
+    /* Adjust DER section */
+    .der {
+        grid-column: 1 / 5;
+        grid-row: 3/4;
+        align-self: end;
+        animation-name: ticker-left-to-right;
+        animation-duration: 20s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+    .der div {
+        transform: rotate(0deg) translate(-150px, 90px);
+        writing-mode: horizontal-tb;
+        font-size: 380px;
+    }
+
+    /* Adjust FILM section */
+    .film {
+        grid-column: 3 / 9;
+        grid-row: 3;
+        animation-name: ticker-right-to-left;
+        animation-duration: 20s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+    .film div {
+        transform: rotate(0deg) translate(-22px, 90px);
+        /* Horizontal text */
+        writing-mode: horizontal-tb;
+        font-size: 380px;
+    }
+
+    /* Von rechts nach links scrollende Animation für FILM */
+    @keyframes ticker-right-to-left {
+        0% {
+            transform: translateX(110%);
+            /* Start außerhalb des Bildschirms rechts */
+        }
+
+        100% {
+            transform: translateX(-145%);
+            /* Ende außerhalb des Bildschirms links */
+        }
+    }
+
+    /* Von links nach rechts scrollende Animation für DER */
+    @keyframes ticker-left-to-right {
+        0% {
+            transform: translateX(-110%);
+            /* Start außerhalb des Bildschirms links */
+        }
+
+        100% {
+            transform: translateX(145%);
+            /* Ende außerhalb des Bildschirms rechts */
+        }
+    }
+
+    /* Adjust red text section */
+    .redtext {
+        font-size: 25px;
+    }
+
+    /* Adjust title and opening hours */
+    .title {
+        grid-column: 1;
+        grid-row: 2 / 3;
+        align-self: start;
+    }
+
+    .oeffnungszeiten {
+        grid-column: 1;
+        grid-row: 7 / 10;
+        align-self: end;
+    }
+}
+
+/* Mobile View (max-width: 640px) */
+@media (max-width: 640px) {
+    .grid {
+        /* Further adjust the grid for smaller mobile screens */
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: 1fr 1fr 1fr 200px repeat(4, 1fr);
+    }
+
+    /* Adjust DER section for mobile */
+    .der {
+        grid-column: 1 / 5;
+        grid-row: 4;
+        align-self: end;
+    }
+
+    .der div {
+        transform: rotate(0deg) translate(-150px, 90px);
+        /* Horizontal text */
+        writing-mode: horizontal-tb;
+        font-size: 350px;
+        /* Smaller font for mobile */
+    }
+
+    /* Adjust FILM section for mobile */
+    .film {
+        grid-column: 3 / 9;
+        grid-row: 4;
+    }
+
+    .film div {
+        transform: rotate(0deg) translate(-20px, 90px);
+        /* Horizontal text */
+        writing-mode: horizontal-tb;
+        font-size: 350px;
+    }
+
+    /* Adjust red text for mobile */
+    .redtext {
+        grid-column: 3 / 8;
+        grid-row: 1 / 11;
+        font-size: 1rem;
+        /* Smaller font for mobile */
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(10, 1fr);
+    }
+
+    /* Adjust title and opening hours */
+    .title {
+        grid-column: 1;
+        grid-row: 2 / 3;
+        align-self: start;
+    }
+
+    .oeffnungszeiten {
+        grid-column: 1;
+        grid-row: 7 / 10;
+        align-self: end;
+    }
+}

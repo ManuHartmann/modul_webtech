@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Things</title>
+    <style>
+        /* Element Heart */
+        #heart {
+            position: absolute;
+            top: 500px;
+            left: 200px;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transform: rotate(-45deg);
+            position: relative;
+        }
+
+        /* The two top circles of the heart */
+        #heart::before,
+        #heart::after {
+            content: "";
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        #heart::before {
+            top: -50px;
+            left: 0;
+        }
+
+        #heart::after {
+            top: 0;
+            left: 50px;
+        }
+
+        /* Element Kreis & Animation */
+        #kreis2 {
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            background-color: #000506;
+            animation-name: anim;
+            animation-duration: 4s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+            animation-play-state: paused;
+        }
+
+        /* Animation Keyframes */
+        @keyframes anim {
+            0% {
+                box-shadow: 0px 0px 8px 8px #e803ba;
+            }
+
+            25% {
+                box-shadow: 0px 0px 0px 8px #e803ba, 0px 0px 8px 16px #e8035b;
+                background-color: #03e8ba;
+            }
+
+            50% {
+                box-shadow: 0px 0px 0px 8px #e803ba, 0px 0px 0px 16px #e84803, 0px 0px 8px 24px #e85f03;
+                background-color: #038ce8;
+            }
+
+            75% {
+                box-shadow: 0px 0px 0px 8px #e803ba, 0px 0px 0px 16px #e84803, 0px 0px 0px 24px #e85f03, 0px 0px 8px 32px #e8a303;
+            }
+        }
+
+        /* General Body Style */
+        body {
+            height: 200vh;
+            /* Allows scrolling for demonstration */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+       /* Button Styles */
+       .button-container {
+            display: flex; 
+            justify-content: center;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .specialbutton {
+            margin: 0 30px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .specialbutton:hover {
+            background-color: #0056b3;
+            /* Darken button on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Heart Shape -->
+    <div id="heart"></div>
+
+    <!-- Animated Circle -->
+    <div id="kreis"></div>
+    <div id="kreis2"></div>
+
+    <!-- Button Container -->
+    <div class="button-container">
+        <button class="specialbutton" onclick="buttonPressed()">Click me!</button>
+        <button class="specialbutton" onclick="moveBack()">Move Back</button>
+        <button class="specialbutton" onclick="neuesElement()">Add Element!</button>
+        <button class="specialbutton" onclick="starteAnimation()">Animate</button>
+    </div>
+
+    <script src="main.js"></script>
+    <!-- JavaScript file inclusion -->
+</body>
+
+</html>
