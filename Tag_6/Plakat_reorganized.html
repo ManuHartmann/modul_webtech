@@ -10,7 +10,7 @@
 
 <body>
 
-    <!-- Main grid container -->
+    <!-- Main grid layout container -->
     <div class="grid">
 
         <div class="der">
@@ -20,31 +20,32 @@
             <div>Film</div>
         </div>
 
-        <!-- Option to add background text (commented out) -->
-        <!-- 
+        <!--background text -->
         <div class="background">
-             <div class="der_background"> der </div>
-             <div class="Film_background"> Film </div>
-        </div> 
-        -->
-
-        <div class="redtext">
-            <div class="title typewriter">
-                Kunstgewerbemuseum Zürich<br /> Ausstellung
-            </div>
-        
-            <div class="oeffnungszeiten typewriter">
-                10. Januar bis 30. April 1960<br />
-                <br />
-                Offen: Montag 14-18, 20-22<br />
-                Dienstag-Freitag 10-12, 14-18, 20-22<br />
-                Samstag-Sonntag 10-12, 14-17
+            <div>
+                <div class="der_background"> der </div>
+                <div class="Film_background"> Film </div>
             </div>
         </div>
-        
+
+        <!-- Placeholders for the typewriter effect -->
+        <div id="typing"></div>
+        <div class="cursor"></div>
+
+        <div class="redtext">
+            <div class="title" id="title">
+            </div>
+
+            <div class="opening-hours" id="opening-hours">
+            </div>
+        </div>
 
     </div>
+
+    <!-- Typewriter effect JavaScript library -->
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
     <script src="Plakat_reorganized.js"></script>
+
 </body>
 
 </html>

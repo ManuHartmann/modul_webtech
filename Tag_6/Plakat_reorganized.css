@@ -18,14 +18,91 @@ body {
     overflow: hidden;
 }
 
-/* DER Section & Animation */
+.background{
+    grid-column: 4;
+    grid-row: 1 / 10;
+}
+
+.background div{
+    transform:scaleY(-100%) rotate(180deg);
+}
+
+.background div div{
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    writing-mode: vertical-lr;
+    font-size: 100px;
+    margin: 0px;
+    padding: 0px;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-delay: 9s;
+    line-height: 70px;
+}
+ 
+.Film_background {
+    visibility: hidden;
+    color: #72746b;
+    animation-name: ticker-up-small;
+}
+
+.der_background {
+    visibility: hidden;
+    color: #45463e;
+    animation-name: ticker-down-small;
+}
+
+/* Down scrollong animation for DER-SMALL */
+@keyframes ticker-down-small {
+    0% {
+        visibility: visible;
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* Up scrolling Animation for FILM-SMALL */
+@keyframes ticker-up-small {
+    0% {
+        visibility: visible;
+        transform: translateY(100vh);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+/* Down scrollong animation for FILM */
+@keyframes ticker-down {
+
+    0% {
+        transform: translateY(-100%) rotate(180deg);
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(180deg);
+    }
+}
+
+/* Up scrolling Animation for DER */
+@keyframes ticker-up {
+    0% {
+        transform: translateY(100vh) rotate(180deg);
+    }
+
+    100% {
+        transform: translateY(-100%) rotate(180deg);
+    }
+}
+
+/* DER Position */
 .der {
     grid-column: 3;
-    grid-row: 6 / 11;
-    animation-name: ticker-up;
-    animation-duration: 20s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    grid-row: 1 / 10;
 }
 
 /* DER Text Styling */
@@ -37,18 +114,18 @@ body {
     padding: 0;
     color: #AEB197;
     writing-mode: vertical-lr;
-    transform: rotate(-180deg) translateY(-20px) translateX(18px);
-    position: relative;
+    position: absolute;
+    animation-name: ticker-up;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    line-height: 338px;
 }
 
-/* FILM Section & Animation */
+/* FILM Position */
 .film {
     grid-column: 3;
-    grid-row: 1 / 8;
-    animation-name: ticker-down;
-    animation-duration: 20s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    grid-row: 1 / 10;
 }
 
 /* FILM Text Styling */
@@ -60,92 +137,34 @@ body {
     padding: 0;
     color: #f0f3d9;
     writing-mode: vertical-lr;
-    transform: rotate(-180deg) translateY(-20px) translateX(18px);
     position: absolute;
+    animation-name: ticker-down;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    line-height: 338px;
 }
 
-/* Down scrollong animation for FILM */
-@keyframes ticker-down {
-    0% {
-        transform: translateY(-110%);
-    }
-
-    100% {
-        transform: translateY(145%);
-    }
-}
-
-/* Up scrolling Animation for DER */
-@keyframes ticker-up {
-    0% {
-        transform: translateY(100%);
-    }
-
-    100% {
-        transform: translateY(-220%);
-    }
-}
-
-/* Add this class to trigger the animations */
-/* .start-animation {
-    opacity: 1;
-} */
-
-/* Red Text Section */
+/* Red Text Styling */
 .redtext {
-    grid-column: 6 / 10;
-    grid-row: 1 / 11;
+    grid-column: 6/10;
+    grid-row:1/11;
     font-family: "Roboto", system-ui;
     font-weight: 100;
-    font-size: 30px;
+    font-size: 32px;
     color: #de130f;
     text-align: left;
     white-space: nowrap;
     overflow: visible;
-    display: grid;
-    justify-content: left;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(10, 1fr);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    padding: 0px;
+    margin-top: 250px;
+    margin-bottom: 250px;
 }
 
-/* Enhanced Typewriter effect styling
-.typewriter {
-    display: inline-block; 
-    overflow: hidden; 
-    white-space: nowrap; 
-    border-right: 2px solid #de130f; 
-    animation: 
-      typing 3.5s steps(30, end) forwards, 
-      blink-caret .5s step-end infinite;
-}
-
-/* Keyframes for typing effect */
-/* @keyframes typing {
-    0% { width: 0; } 
-    100% { width: 100%; } 
-} */
-
-/* Enhanced blinking cursor effect */
-/* @keyframes blink-caret {
-    0%, 100% { border-color: transparent; }
-    50% { border-color: #de130f; }
-}  */
-
-/* Title Section */
-.title {
-    grid-column: 1;
-    grid-row: 3 / 5;
-}
-
-/* Opening Hours Section */
-.oeffnungszeiten {
-    grid-column: 1;
-    grid-row: 7 / 10;
-}
-
-
-
-/* Breakpoints for Responsive Design */
+/* Breakpoints */
 
 /* Tablet View (max-width: 1024px) */
 @media (max-width: 1024px) {
@@ -156,142 +175,127 @@ body {
         grid-template-rows: repeat(9, 1fr);
     }
 
-    /* Adjust DER section */
-    .der {
-        grid-column: 1 / 5;
-        grid-row: 3/4;
-        align-self: end;
-        animation-name: ticker-left-to-right;
-        animation-duration: 20s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
+     /* DER neue Position */
+     .der {
+        grid-column: 1 / 16;
+        grid-row: 3 / 10;
     }
 
+    /* DER Text Styling */
     .der div {
-        transform: rotate(0deg) translate(-150px, 90px);
         writing-mode: horizontal-tb;
-        font-size: 380px;
+        animation-name: ticker-left-to-right;
+        animation-duration: 10s;
+        font-size: 400px;
     }
 
-    /* Adjust FILM section */
+    /* FILM neue Position */
     .film {
-        grid-column: 3 / 9;
-        grid-row: 3;
-        animation-name: ticker-right-to-left;
-        animation-duration: 20s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
+        grid-column: 1 / 16;
+        grid-row: 3 / 10;
     }
 
+    /* FILM Text Styling */
     .film div {
-        transform: rotate(0deg) translate(-22px, 90px);
-        /* Horizontal text */
         writing-mode: horizontal-tb;
-        font-size: 380px;
+        animation-name: ticker-right-to-left;
+        animation-duration: 10s;
+        font-size: 400px;
+    }
+
+    .background{
+        grid-column: 1/17;
+        grid-row: 5;
+    }
+    
+    .background div div{
+        writing-mode: horizontal-tb;
+        transform:scaleX(-100%);
+        font-size: 100px;
+        line-height: 240px;
+        animation-delay: 11s;
+    }
+    
+    /* Down scrollong animation for DER */
+    @keyframes ticker-down-small {
+        0% {
+            visibility: visible;
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(100vw);
+        }
+    }
+    
+    /* Up scrolling Animation for FILM */
+    @keyframes ticker-up-small {
+        0% {
+            visibility: visible;
+            transform: translateX(100vw);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
     }
 
     /* Von rechts nach links scrollende Animation für FILM */
     @keyframes ticker-right-to-left {
         0% {
-            transform: translateX(110%);
-            /* Start außerhalb des Bildschirms rechts */
+            transform: translateX(100vw);
         }
-
         100% {
-            transform: translateX(-145%);
-            /* Ende außerhalb des Bildschirms links */
+            transform: translateX(-100%);
         }
     }
 
     /* Von links nach rechts scrollende Animation für DER */
     @keyframes ticker-left-to-right {
         0% {
-            transform: translateX(-110%);
-            /* Start außerhalb des Bildschirms links */
+            transform: translateX(-100%);
         }
-
         100% {
-            transform: translateX(145%);
-            /* Ende außerhalb des Bildschirms rechts */
+            transform: translateX(100vw);
         }
     }
 
     /* Adjust red text section */
     .redtext {
-        font-size: 25px;
+        grid-column: 4/14;
+        font-size: 32px;
+        margin-top: 150px;
     }
 
-    /* Adjust title and opening hours */
-    .title {
-        grid-column: 1;
-        grid-row: 2 / 3;
-        align-self: start;
-    }
-
-    .oeffnungszeiten {
-        grid-column: 1;
-        grid-row: 7 / 10;
-        align-self: end;
-    }
 }
 
 /* Mobile View (max-width: 640px) */
 @media (max-width: 640px) {
     .grid {
         /* Further adjust the grid for smaller mobile screens */
-        grid-template-columns: repeat(8, 1fr);
-        grid-template-rows: 1fr 1fr 1fr 200px repeat(4, 1fr);
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows:repeat(10, 1fr);
     }
 
-    /* Adjust DER section for mobile */
-    .der {
-        grid-column: 1 / 5;
-        grid-row: 4;
-        align-self: end;
-    }
-
+    /* DER Text Styling */
     .der div {
-        transform: rotate(0deg) translate(-150px, 90px);
-        /* Horizontal text */
-        writing-mode: horizontal-tb;
-        font-size: 350px;
-        /* Smaller font for mobile */
+        font-size: 200px;
     }
 
-    /* Adjust FILM section for mobile */
-    .film {
-        grid-column: 3 / 9;
-        grid-row: 4;
-    }
-
+    /* FILM Text Styling */
     .film div {
-        transform: rotate(0deg) translate(-20px, 90px);
-        /* Horizontal text */
-        writing-mode: horizontal-tb;
-        font-size: 350px;
+        font-size: 200px;
+    }
+    
+    .background div div{
+        font-size: 60px;
+        line-height: 240px;
     }
 
     /* Adjust red text for mobile */
     .redtext {
-        grid-column: 3 / 8;
-        grid-row: 1 / 11;
-        font-size: 1rem;
-        /* Smaller font for mobile */
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(10, 1fr);
+        grid-column: 2/6;
+        font-size: 14px;
+        margin-top:85px;
+        margin-bottom: 140px;
     }
 
-    /* Adjust title and opening hours */
-    .title {
-        grid-column: 1;
-        grid-row: 2 / 3;
-        align-self: start;
-    }
-
-    .oeffnungszeiten {
-        grid-column: 1;
-        grid-row: 7 / 10;
-        align-self: end;
-    }
 }

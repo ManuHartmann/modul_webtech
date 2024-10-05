@@ -1,21 +1,31 @@
+const title = document.getElementById('title')
 
-    // // Function to start animations on wheel scroll
-    // const startAnimations = (event) => {
-    //     const filmElement = document.querySelector('.film');
-    //     const derElement = document.querySelector('.der');
+// Initialize the Typewriter effect for the title
+const titleTypewriter = new Typewriter(title, {
+    loop: false,
+    delay: 20,
+    deleteSpeed: 25,
+    cursor: "|"
+});
 
-    //     // Prevent default scrolling
-    //     event.preventDefault();
+titleTypewriter.typeString("Kunstgewerbemuseum Zürich<br /> Ausstellung").start()
 
-    //     // Add classes to start animations if not already added
-    //     if (!filmElement.classList.contains('start-animation')) {
-    //         filmElement.classList.add('start-animation');
-    //     }
-    //     if (!derElement.classList.contains('start-animation')) {
-    //         derElement.classList.add('start-animation');
-    //     }
-    // };
+// Initialize the Typewriter effect for the opening hours
+const openingHours = document.getElementById('opening-hours')
 
-    // // Listen for the wheel event instead of scroll
-    // window.addEventListener('wheel', startAnimations, { passive: false });
+const openingHoursTypewriter = new Typewriter(openingHours, {
+    loop: false,
+    delay: 20,
+    deleteSpeed: 25,
+    autoStart: true,
+    cursor: "|"
+});
+
+openingHoursTypewriter.typeString("10. Januar bis 30. April 1960<br />Offen: Montag 14–18, 20–22<br />Dienstag–Freitag 10–12, 14–18, 20–22<br />Samstag–Sonntag 10–12, 14–17").callFunction(() => {
+    // hide the cursor after typing is done
+    let cursor2 = document.querySelector('.Typewriter__cursor');
+    if (cursor2) {
+        cursor2.style.visibility = 'hidden';
+    }
+}).start()
 
