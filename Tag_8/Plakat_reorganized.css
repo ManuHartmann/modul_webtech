@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+body {
+    background-color: black;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    cursor: url('red-triangle.png'), auto;
+}
+
+/* .cursorFollower {
+    position: fixed;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid red;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s;
+    mix-blend-mode: difference;
+    z-index: 999;
+    pointer-events: none;
+  }
+  .cursorFollowerDot {
+    position: fixed;
+    width: 0.8rem;
+    height: 0.8rem;
+    background: red;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s;
+    mix-blend-mode: difference;
+    z-index: 999;
+    pointer-events: none;
+  }
+   */
+
+/* Grid Layout for the entire page */
+.grid {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 275px repeat(6, 1fr) 100px;
+    grid-template-rows: repeat(10, 1fr);
+    overflow: hidden;
+}
+
+/* Full-page video overlay
+.video-overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; 
+    z-index: 9999; 
+    overflow: hidden;
+}
+
+.video-overlay video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    mix-blend-mode: hard-light;
+} */
+
+/* Background text position */
+.background{
+    grid-column: 4;
+    grid-row: 1 / 10;
+}
+
+/* Transforming and rotating background text */
+.background div{
+    transform:scaleY(-100%) rotate(180deg);
+}
+
+/* Styling the text inside the background */
+.background div div{
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    writing-mode: vertical-lr;
+    font-size: 100px;
+    margin: 0px;
+    padding: 0px;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-delay: 9s;
+    line-height: 70px;
+}
+ 
+/* Film and Der background text are hidden initially */
+.Film_background {
+    visibility: hidden;
+    color: #838177;
+    animation-name: ticker-up-small;
+}
+
+/* .Film_background_2 {
+    visibility: hidden;
+    color: #838177;
+    animation-name: ticker-up-small;
+    animation-delay: 3s;
+}
+    
+.der_background_2 {
+    visibility: hidden;
+    color: #4A4B41;
+    animation-name: ticker-down-small;
+    animation-delay: 
+}*/
+
+.der_background {
+    visibility: hidden;
+    color: #4A4B41;
+    animation-name: ticker-down-small;
+}
+
+/* Down scrollong animation for DER-SMALL */
+@keyframes ticker-down-small {
+    0% {
+        visibility: visible;
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* Up scrolling animation for FILM-SMALL */
+@keyframes ticker-up-small {
+    0% {
+        visibility: visible;
+        transform: translateY(100vh);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+/* Down scrollong animation for main FILM text */
+@keyframes ticker-down {
+
+    0% {
+        transform: translateY(-100%) rotate(180deg);
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(180deg);
+    }
+}
+
+/* Up scrolling Animation for main DER text */
+@keyframes ticker-up {
+    0% {
+        transform: translateY(100vh) rotate(180deg);
+    }
+
+    100% {
+        transform: translateY(-100%) rotate(180deg);
+    }
+}
+
+/* DER Position */
+.der {
+    grid-column: 3;
+    grid-row: 1 / 10;
+}
+
+/* DER Text Styling */
+.der div {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 310px;
+    margin: 0;
+    padding: 0;
+    color: #AEB197;
+    writing-mode: vertical-lr;
+    position: absolute;
+    animation-name: ticker-up;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    line-height: 338px;
+}
+
+/* FILM Position */
+.film {
+    grid-column: 3;
+    grid-row: 1 / 10;
+}
+
+/* FILM Text Styling */
+.film div {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 310px;
+    margin: 0;
+    padding: 0;
+    color: #f0f3d9;
+    writing-mode: vertical-lr;
+    position: absolute;
+    animation-name: ticker-down;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    line-height: 338px;
+}
+
+/* Red Text Styling */
+.redtext {
+    grid-column: 6/10;
+    grid-row:1/11;
+    font-family: "Roboto", system-ui;
+    font-weight: 100;
+    font-size: 28px;
+    color: #de130f;
+    text-align: left;
+    white-space: nowrap;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    padding: 0px;
+    margin-top: 150px;
+    margin-bottom: 100px;
+}
+
+/* Breakpoints for responsive design */
+
+/* Tablet View (max-width: 1024px) */
+@media (max-width: 1024px) {
+
+     /* Adjust grid layout for tablets */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(16, 1fr);
+        grid-template-rows: repeat(9, 1fr);
+    }
+
+    /* Adjust DER text */
+     .der {
+        grid-column: 1 / 16;
+        grid-row: 3 / 10;
+    }
+
+    .der div {
+        writing-mode: horizontal-tb;
+        animation-name: ticker-left-to-right;
+        animation-duration: 10s;
+        font-size: 400px;
+    }
+
+   /* Adjust FILM text */
+    .film {
+        grid-column: 1 / 16;
+        grid-row: 3 / 10;
+    }
+
+    .film div {
+        writing-mode: horizontal-tb;
+        animation-name: ticker-right-to-left;
+        animation-duration: 10s;
+        font-size: 400px;
+    }
+
+    /* Adjust background text */
+    .background{
+        grid-column: 1/17;
+        grid-row: 5;
+    }
+    
+    .background div div{
+        writing-mode: horizontal-tb;
+        transform:scaleX(-100%);
+        font-size: 100px;
+        line-height: 240px;
+        animation-delay: 11s;
+    }
+    
+     /* Animation for FILM and DER scrolling horizontally */
+    @keyframes ticker-down-small {
+        0% {
+            visibility: visible;
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(100vw);
+        }
+    }
+    
+    @keyframes ticker-up-small {
+        0% {
+            visibility: visible;
+            transform: translateX(100vw);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    /* Von rechts nach links scrollende Animation für FILM */
+    @keyframes ticker-right-to-left {
+        0% {
+            transform: translateX(100vw);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    /* Von links nach rechts scrollende Animation für DER */
+    @keyframes ticker-left-to-right {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(100vw);
+        }
+    }
+
+    /* Adjust red text */
+    .redtext {
+        grid-column: 4/14;
+        font-size: 32px;
+        margin-top: 150px;
+        margin-bottom: 200px;
+    }
+
+}
+
+/* Mobile View (max-width: 640px) */
+@media (max-width: 640px) {
+    .grid {
+        /* Grid layout adjustments for smaller screens */
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows:repeat(10, 1fr);
+    }
+
+    /* Adjust DER & FILM text */
+    .der div {
+        font-size: 200px;
+    }
+
+    .film div {
+        font-size: 200px;
+    }
+    
+    .background div div{
+        font-size: 60px;
+        line-height: 240px;
+    }
+
+    /* Adjust red text */
+    .redtext {
+        grid-column: 2/6;
+        font-size: 14px;
+        margin-top: 1fr;
+        margin-bottom: 140px;
+    }
+
+}
