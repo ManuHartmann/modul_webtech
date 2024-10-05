@@ -228,8 +228,8 @@ body {
 
 /* Breakpoints for responsive design */
 
-/* Tablet View (max-width: 1024px) */
-@media (max-width: 1024px) {
+/* Tablet View (max-width: 1040px) */
+@media (max-width: 1040px) {
 
      /* Adjust grid layout for tablets */
     .grid {
