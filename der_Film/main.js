@@ -1,4 +1,4 @@
-//------Cursor
+//------ Cursor
 
 let mouseX = 0, mouseY = 0;
 let cursorX = 0, cursorY = 0;
@@ -72,4 +72,3 @@ openingHoursTypewriter.typeString("10. Januar bis 30. April 1960<br /><br />Offe
         cursor2.style.visibility = 'hidden';
     }
 }).start()
-

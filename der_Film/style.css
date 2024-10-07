@@ -1,5 +1,7 @@
+/* Importing the Roboto font family */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 
+/* Global body styling */
 body {
     background-color: black;
     overflow: hidden;
@@ -8,6 +10,7 @@ body {
     cursor: none;
 }
 
+/* Custom cursor */
 .custom-cursor {
     position: absolute;
     width: 15px;
@@ -19,37 +22,10 @@ body {
     z-index: 2
 }
 
-/* Class to trigger the animation */
+/* Class to trigger cursor animation */
 .grow {
-    animation: clickEffect 0.3s ease-out; /* 0.3s animation */
+    animation: clickEffect 0.3s ease-out;
 }
-
-
-/* .cursorFollower {
-    position: fixed;
-    width: 2rem;
-    height: 2rem;
-    border: 2px solid red;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: transform 0.3s;
-    mix-blend-mode: difference;
-    z-index: 999;
-    pointer-events: none;
-  }
-  .cursorFollowerDot {
-    position: fixed;
-    width: 0.8rem;
-    height: 0.8rem;
-    background: red;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: transform 0.3s;
-    mix-blend-mode: difference;
-    z-index: 999;
-    pointer-events: none;
-  }
-   */
 
 /* Grid Layout for the entire page */
 .grid {
@@ -61,37 +37,19 @@ body {
     overflow: hidden;
 }
 
-/* Full-page video overlay
-.video-overlay {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none; 
-    z-index: 9999; 
-    overflow: hidden;
-}
-
-.video-overlay video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.8;
-    mix-blend-mode: hard-light;
-} */
-
 /* Background text position */
-.background{
+.background {
     grid-column: 4;
     grid-row: 1 / 10;
 }
 
 /* Transforming and rotating background text */
-.background div{
-    transform:scaleY(-100%) rotate(180deg);
+.background div {
+    transform: scaleY(-100%) rotate(180deg);
 }
 
 /* Styling the text inside the background */
-.background div div{
+.background div div {
     position: absolute;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
@@ -103,30 +61,16 @@ body {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     animation-delay: 9s;
-    line-height: 70px;
+    line-height: 4rem;
     z-index: 1
 }
- 
-/* Film and Der background text are hidden initially */
+
+/* Film and Der background text */
 .Film_background {
     visibility: hidden;
     color: #838177;
     animation-name: ticker-up-small;
 }
-
-/* .Film_background_2 {
-    visibility: hidden;
-    color: #838177;
-    animation-name: ticker-up-small;
-    animation-delay: 3s;
-}
-    
-.der_background_2 {
-    visibility: hidden;
-    color: #4A4B41;
-    animation-name: ticker-down-small;
-    animation-delay: 
-}*/
 
 .der_background {
     visibility: hidden;
@@ -140,6 +84,7 @@ body {
         visibility: visible;
         transform: translateY(-100%);
     }
+
     100% {
         transform: translateY(100vh);
     }
@@ -151,6 +96,7 @@ body {
         visibility: visible;
         transform: translateY(100vh);
     }
+
     100% {
         transform: translateY(-100%);
     }
@@ -200,7 +146,7 @@ body {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     line-height: 338px;
-    z-index: 3;
+    z-index: 2;
 }
 
 /* FILM Position */
@@ -230,7 +176,7 @@ body {
 /* Red Text Styling */
 .redtext {
     grid-column: 6/10;
-    grid-row:1/11;
+    grid-row: 1/11;
     font-family: "Roboto", system-ui;
     font-weight: 100;
     font-size: 28px;
@@ -240,27 +186,30 @@ body {
     overflow: visible;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; 
+    justify-content: space-between;
     padding: 0px;
-    margin-top: 150px;
-    margin-bottom: 100px;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
     z-index: 3
 }
 
-/* Breakpoints for responsive design */
+
+/* ---- Breakpoints for responsive design ---- */
+
 
 /* Tablet View (max-width: 1040px) */
+
 @media (max-width: 1040px) {
 
-     /* Adjust grid layout for tablets */
+    /* Adjust grid layout for tablets */
     .grid {
         display: grid;
         grid-template-columns: repeat(16, 1fr);
         grid-template-rows: repeat(9, 1fr);
     }
 
-    /* Adjust DER text */
-     .der {
+    /* Adjust DER text for tablets */
+    .der {
         grid-column: 1 / 16;
         grid-row: 3 / 10;
     }
@@ -269,10 +218,10 @@ body {
         writing-mode: horizontal-tb;
         animation-name: ticker-left-to-right;
         animation-duration: 10s;
-        font-size: 400px;
+        font-size: 300px;
     }
 
-   /* Adjust FILM text */
+    /* Adjust FILM text for tablets */
     .film {
         grid-column: 1 / 16;
         grid-row: 3 / 10;
@@ -282,102 +231,108 @@ body {
         writing-mode: horizontal-tb;
         animation-name: ticker-right-to-left;
         animation-duration: 10s;
-        font-size: 400px;
+        font-size: 300px;
     }
 
-    /* Adjust background text */
-    .background{
+    /* Adjust background text for tablets */
+    .background {
         grid-column: 1/17;
         grid-row: 5;
-    }
-    
-    .background div div{
+    } 
+
+    .background div div {
         writing-mode: horizontal-tb;
-        transform:scaleX(-100%);
         font-size: 100px;
-        line-height: 240px;
+        line-height: 15rem;
         animation-delay: 11s;
     }
-    
-     /* Animation for FILM and DER scrolling horizontally */
+
+    /* Horizontal scroll animation for tablet view for small DER & FILM */
     @keyframes ticker-down-small {
         0% {
             visibility: visible;
             transform: translateX(-100%);
         }
+
         100% {
             transform: translateX(100vw);
         }
     }
-    
+
     @keyframes ticker-up-small {
         0% {
             visibility: visible;
             transform: translateX(100vw);
         }
+
         100% {
             transform: translateX(-100%);
         }
     }
 
-    /* Von rechts nach links scrollende Animation für FILM */
+    /* Horizontal scroll animation for tablet view for DER & FILM */
     @keyframes ticker-right-to-left {
         0% {
             transform: translateX(100vw);
         }
+
         100% {
             transform: translateX(-100%);
         }
     }
 
-    /* Von links nach rechts scrollende Animation für DER */
     @keyframes ticker-left-to-right {
         0% {
             transform: translateX(-100%);
         }
+
         100% {
             transform: translateX(100vw);
         }
     }
 
-    /* Adjust red text */
+    /* Adjust red text for tablets */
     .redtext {
         grid-column: 4/14;
-        font-size: 32px;
-        margin-top: 150px;
-        margin-bottom: 200px;
+        font-size: 30px;
+        margin-top: 7rem;
+        margin-bottom: 7rem;
     }
 
 }
 
+
 /* Mobile View (max-width: 640px) */
+
 @media (max-width: 640px) {
     .grid {
         /* Grid layout adjustments for smaller screens */
         grid-template-columns: repeat(6, 1fr);
-        grid-template-rows:repeat(10, 1fr);
+        grid-template-rows: repeat(10, 1fr);
     }
 
-    /* Adjust DER & FILM text */
+    /* Adjust DER & FILM text for smaller screens */
     .der div {
         font-size: 200px;
+        line-height: 15rem;
     }
 
     .film div {
         font-size: 200px;
-    }
-    
-    .background div div{
-        font-size: 60px;
-        line-height: 240px;
+        line-height: 15rem;
     }
 
-    /* Adjust red text */
+    .background div div {
+        font-size: 60px;
+        line-height: 13rem;
+    }
+
+    /* Adjust red text for smaller screens */
     .redtext {
         grid-column: 2/6;
         font-size: 14px;
-        margin-top: 1fr;
-        margin-bottom: 140px;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
     }
 
 }
